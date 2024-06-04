@@ -31,6 +31,9 @@ const dialog = document.querySelector("dialog");
 const form = document.querySelector('#fo');
 dialog.showModal();
 
+const names1 = document.querySelector(".name1");
+const names2 = document.querySelector(".name2");
+const result = document.querySelector(".foot");
 
 let indexBox = 0;
 let over = 0;
@@ -91,20 +94,23 @@ const user2 = function(name2) {
     return {name2, createO, getarr2x, getarr2y, getDiag2, getrevDiag2};
 }
 
-const createUsers = function() {
-    const p1 = document.getElementById("player1");
-    const p2 = document.getElementById("player2");
+const createUsers = function(p1, p2) {
     ros = user1(p1.value);
     kris = user2(p2.value);
+    names1.innerHTML = p1.value;
+    names2.innerHTML = p2.value;
     return {ros, kris};
 };
 
 const add = function() {
-    event.preventDefault();
-    createUsers();
-    
-    form.reset();
-    dialog.close();
+    const p1 = document.getElementById("player1");
+    const p2 = document.getElementById("player2");
+    if(p1.value && p2.value){
+        event.preventDefault();
+        createUsers(p1, p2);
+        form.reset();
+        dialog.close();
+    }
 }
 
 
@@ -131,17 +137,20 @@ const game = function(xPos, yPos) {
         if(indexBox>3){
             if((getarr1x()[0]==3 || getarr1x()[1]==3 || getarr1x()[2]==3) || (getarr1y()[0]==3 || getarr1y()[1]==3 || getarr1y()[2]==3) || getDiag1()==3 || getrevDiag1()==3){
                 console.log(`${name1} won`);
+                result.innerHTML = `${name1} won`;
                 over = 1;
                 return;
             }
             else if((getarr2x()[0]==3 || getarr2x()[1]==3 || getarr2x()[2]==3) || (getarr2y()[0]==3 || getarr2y()[1]==3 || getarr2y()[2]==3) || getDiag2()==3 || getrevDiag2()==3){
                 console.log(`${name2} won`);
+                result.innerHTML = `${name2} won`;
                 over = 1;
                 return;
             }
         }
         if(indexBox==9){
             console.log("Tie");
+            result.innerHTML = `Tie`;
             over = 1;
         }
     }

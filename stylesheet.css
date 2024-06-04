@@ -1,14 +1,27 @@
 *{
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: whitesmoke;
-    background-color: black;
 }
 
 body{
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 3fr 0.5fr;
+    color: whitesmoke;
+    background-color: black;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.name1,
+.name2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 500%;
 }
 
 .container{
@@ -36,11 +49,12 @@ body{
 
 dialog{
     margin: auto;
-    width: 400px;
-    height: 450px;
+    width: 350px;
+    height: 350px;
     background-color: #f8fafc;
     color: #0f172a;
-    font-size: x-large;
+    font-size: larger;
+    font-weight: 600;
     border-radius: 12px;
 }
 
@@ -51,8 +65,26 @@ fieldset{
     margin: 5px;
 }
 
+input{
+    height: 40px;
+    font-size: larger;
+}
 
 ::backdrop{
     background-color: #666;
-    opacity: 0.75;
+    opacity: 1;
+}
+
+button{
+    font-size: larger;
+    font-weight: 600;
+    color: #0f172a;
+    border-radius: 5px;
+}
+
+.foot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 500%;
 }
