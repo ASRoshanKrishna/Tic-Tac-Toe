@@ -33,3 +33,26 @@ body{
     color: white;
     font-size: 700%;
 }
+
+dialog{
+    margin: auto;
+    width: 400px;
+    height: 450px;
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-size: x-large;
+    border-radius: 12px;
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 5px;
+}
+
+
+::backdrop{
+    background-color: #666;
+    opacity: 0.75;
+}
