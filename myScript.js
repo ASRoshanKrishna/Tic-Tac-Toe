@@ -9,6 +9,25 @@ const gameBoard = (function() {
     return {displayBoard,arrayBoard};
 })();
 
+const displayController = (function() {
+    const { arrayBoard } = gameBoard;
+    
+    const dis = function() {
+        for(let i=0;i<3;i++){
+            for(let j=0;j<3;j++){
+                const ij = `${i}${j}`;
+                const d = document.getElementById(ij);
+                // console.log(ij);
+                d.innerHTML = arrayBoard[i][j];
+            }
+        }
+    }
+
+    return {dis};
+})();
+
+displayController.dis();
+
 const user1 = function(name) {
     const { arrayBoard } = gameBoard;
     const arr1x = [0, 0, 0];
@@ -72,6 +91,7 @@ const user2 = function(name) {
 const game = function() {
     const ros = user1("ros");
     const kris = user2("kris");
+
     const { arr1x, arr1y, getDiag1, getrevDiag1 } = ros;
     const { arr2x, arr2y, getDiag2, getrevDiag2 } = kris;
 
@@ -88,7 +108,8 @@ const game = function() {
             kris.createO(a[0],a[1]);
         }
         gameBoard.displayBoard();
-        console.log(ros.getDiag1(), kris.getDiag2(), ros.getrevDiag1(), kris.getrevDiag2());
+        displayController.dis();
+        // console.log(ros.getDiag1(), kris.getDiag2(), ros.getrevDiag1(), kris.getrevDiag2());
         if(i>3){
             if((arr1x[0]==3 || arr1x[1]==3 || arr1x[2]==3) || (arr1y[0]==3 || arr1y[1]==3 || arr1y[2]==3) || ros.getDiag1()==3 || ros.getrevDiag1()==3){
                 console.log("ros won");
@@ -99,11 +120,15 @@ const game = function() {
                 return;
             }
         }
+        if(i==8)
+        console.log("Tie");
     }
 }
 
 // gameBoard.createO(0,1);
 // gameBoard.createX(1,1);
 // gameBoard.createO(2,1);
+
 gameBoard.displayBoard();
+displayController.dis();
 game();

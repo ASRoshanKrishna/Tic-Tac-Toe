@@ -4,3 +4,32 @@
     color: whitesmoke;
     background-color: black;
 }
+
+body{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 3fr 0.5fr;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.matrix{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.divi{
+    border: 2px solid gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    color: white;
+    font-size: 900%;
+}
