@@ -31,8 +31,8 @@ const dialog = document.querySelector("dialog");
 const form = document.querySelector('#fo');
 dialog.showModal();
 
-const names1 = document.querySelector(".name1");
-const names2 = document.querySelector(".name2");
+const names1 = document.getElementById("name1");
+const names2 = document.getElementById("name2");
 const result = document.querySelector(".foot");
 
 let indexBox = 0;
@@ -125,11 +125,15 @@ const game = function(xPos, yPos) {
             // const pv = prompt("ros i j");
             // const a= pv.split(" ");
             ros.createX(xPos, yPos);
+            names1.classList.toggle("highlight");
+            names2.classList.toggle("highlight");
         }
         else{
             // const pv = prompt("kris i j");
             // const a = pv.split(" ");
             kris.createO(xPos, yPos);  
+            names2.classList.toggle("highlight");
+            names1.classList.toggle("highlight");
         }
         gameBoard.displayBoard();
         displayController.dis();
