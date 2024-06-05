@@ -27,11 +27,10 @@ body{
 
 #name1,
 #name2{
-    font-size: 500%;
+    font-size: 5rem;
 }
 
 .re{
-    font-size: 100%;
     font-weight: 600;
     color: #0f172a;
     border-radius: 5px;
@@ -39,9 +38,9 @@ body{
 
 #restart{
     padding: 1%;
-    width: 35%;
-    height: 25%;
-    font-size: x-large;
+    min-width: 7rem;
+    min-height: 25%;
+    font-size: 2rem;
     font-weight: 400;
     border-radius: 5px;
     border: none;
@@ -60,15 +59,17 @@ body{
 }
 
 .container{
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
 }
 
 .matrix{
+    grid-column: 2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0px;
+    min-width: 620px;
 }
 
 .divi{
@@ -76,8 +77,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
-    width: 200px;
+    min-height: 200px;
+    min-width: 200px;
     color: white;
     font-size: 700%;
 }
@@ -88,7 +89,7 @@ dialog{
     height: 50%;
     background-color: #14b8a6;
     color: #f0fdfa;
-    font-size: 200%;
+    font-size: 3rem;
     font-weight: 600;
     border: none;
     border-radius: 12px;
@@ -119,7 +120,7 @@ input{
 button{
     padding: 1%;
     width: 30%;
-    font-size: 90%;
+    font-size: 2rem;
     font-weight: 400;
     color: #14b8a6;
     background-color: #f0fdfa;
@@ -136,5 +137,5 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 500%;
+    font-size: 5rem;
 }
