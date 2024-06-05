@@ -7,8 +7,9 @@ body{
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 3fr 0.5fr;
+    gap: 1.5%;
     color: whitesmoke;
-    background-color: black;
+    background: linear-gradient(111.5deg, rgb(1, 43, 95) 0.4%, rgb(1, 81, 124) 100.2%);
 }
 
 .header{
@@ -36,8 +37,19 @@ body{
     border-radius: 5px;
 }
 
+#restart{
+    color: #0f172a;
+    background-color: #a5f3fc;
+}
+
+#restart:hover{
+    color: rgb(1, 81, 124);
+    background-color: #f0fdfa;
+}
+
 .highlight{
-    border: 1px solid cyan;
+    border: 2px solid #a5f3fc;
+    border-radius: 15px;
 }
 
 .container{
@@ -65,12 +77,13 @@ body{
 
 dialog{
     margin: auto;
-    width: 500px;
-    height: 500px;
-    background-color: #f8fafc;
-    color: #0f172a;
+    width: 25%;
+    height: 50%;
+    background-color: #14b8a6;
+    color: #f0fdfa;
     font-size: 200%;
     font-weight: 600;
+    border: none;
     border-radius: 12px;
 }
 
@@ -79,23 +92,35 @@ fieldset{
     flex-direction: column;
     gap: 25px;
     margin: 5px;
+    border: 1px solid #f0fdfa;
 }
 
 input{
-    height: 50px;
+    border: none;
+    border-radius: 5px;
+    /* height: 90%; */
     font-size: 90%;
 }
 
 ::backdrop{
-    background-color: #666;
+    background: linear-gradient(111.5deg, rgb(65, 214, 202) 0.4%, rgb(106, 240, 229) 100.2%);
     opacity: 1;
 }
 
 button{
-    font-size: 100%;
-    font-weight: 600;
-    color: #0f172a;
+    padding: 1%;
+    width: 30%;
+    font-size: 90%;
+    font-weight: 400;
+    color: #14b8a6;
+    background-color: #f0fdfa;
     border-radius: 5px;
+    border: none;
+}
+
+button:hover{
+    color: #0f172a;
+    background-color: #bbf7d0;
 }
 
 .foot{
