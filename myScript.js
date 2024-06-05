@@ -26,7 +26,6 @@ const displayController = (function() {
     return {dis};
 })();
 
-
 const dialog = document.querySelector("dialog");
 const form = document.querySelector('#fo');
 dialog.showModal();
@@ -37,8 +36,8 @@ const result = document.querySelector(".foot");
 
 let indexBox = 0;
 let over = 0;
-let ros = "";
-let kris = "";
+let firstPlayer = "";
+let secondPlayer = "";
 
 const user1 = function(name1) {
     const { arrayBoard } = gameBoard;
@@ -95,11 +94,11 @@ const user2 = function(name2) {
 }
 
 const createUsers = function(p1, p2) {
-    ros = user1(p1.value);
-    kris = user2(p2.value);
+    firstPlayer = user1(p1.value);
+    secondPlayer = user2(p2.value);
     names1.innerHTML = p1.value;
     names2.innerHTML = p2.value;
-    return {ros, kris};
+    return {firstPlayer, secondPlayer};
 };
 
 const add = function() {
@@ -117,27 +116,27 @@ const add = function() {
 const game = function(xPos, yPos) {
     
 
-    const { name1, getarr1x, getarr1y, getDiag1, getrevDiag1 } = ros;
-    const { name2, getarr2x, getarr2y, getDiag2, getrevDiag2 } = kris;
+    const { name1, getarr1x, getarr1y, getDiag1, getrevDiag1 } = firstPlayer;
+    const { name2, getarr2x, getarr2y, getDiag2, getrevDiag2 } = secondPlayer;
     
     if(over!=1){
         if(indexBox%2==0){
-            // const pv = prompt("ros i j");
+            // const pv = prompt("firstPlayer i j");
             // const a= pv.split(" ");
-            ros.createX(xPos, yPos);
+            firstPlayer.createX(xPos, yPos);
             names1.classList.toggle("highlight");
             names2.classList.toggle("highlight");
         }
         else{
-            // const pv = prompt("kris i j");
+            // const pv = prompt("secondPlayer i j");
             // const a = pv.split(" ");
-            kris.createO(xPos, yPos);  
+            secondPlayer.createO(xPos, yPos);  
             names2.classList.toggle("highlight");
             names1.classList.toggle("highlight");
         }
         gameBoard.displayBoard();
         displayController.dis();
-        // console.log(ros.getDiag1(), kris.getDiag2(), ros.getrevDiag1(), kris.getrevDiag2());
+        // console.log(firstPlayer.getDiag1(), secondPlayer.getDiag2(), firstPlayer.getrevDiag1(), secondPlayer.getrevDiag2());
         if(indexBox>3){
             if((getarr1x()[0]==3 || getarr1x()[1]==3 || getarr1x()[2]==3) || (getarr1y()[0]==3 || getarr1y()[1]==3 || getarr1y()[2]==3) || getDiag1()==3 || getrevDiag1()==3){
                 console.log(`${name1} won`);
