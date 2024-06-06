@@ -17,7 +17,6 @@ const displayController = (function() {
             for(let j=0;j<3;j++){
                 const ij = `${i}${j}`;
                 const d = document.getElementById(ij);
-                // console.log(ij);
                 d.innerHTML = arrayBoard[i][j];
             }
         }
@@ -121,48 +120,35 @@ const game = function(xPos, yPos) {
     
     if(over!=1){
         if(indexBox%2==0){
-            // const pv = prompt("firstPlayer i j");
-            // const a= pv.split(" ");
             firstPlayer.createX(xPos, yPos);
             names1.classList.toggle("highlight");
             names2.classList.toggle("highlight");
         }
         else{
-            // const pv = prompt("secondPlayer i j");
-            // const a = pv.split(" ");
             secondPlayer.createO(xPos, yPos);  
             names2.classList.toggle("highlight");
             names1.classList.toggle("highlight");
         }
-        gameBoard.displayBoard();
+
         displayController.dis();
-        // console.log(firstPlayer.getDiag1(), secondPlayer.getDiag2(), firstPlayer.getrevDiag1(), secondPlayer.getrevDiag2());
+
         if(indexBox>3){
             if((getarr1x()[0]==3 || getarr1x()[1]==3 || getarr1x()[2]==3) || (getarr1y()[0]==3 || getarr1y()[1]==3 || getarr1y()[2]==3) || getDiag1()==3 || getrevDiag1()==3){
-                console.log(`${name1} won`);
                 result.innerHTML = `${name1} won`;
                 over = 1;
                 return;
             }
             else if((getarr2x()[0]==3 || getarr2x()[1]==3 || getarr2x()[2]==3) || (getarr2y()[0]==3 || getarr2y()[1]==3 || getarr2y()[2]==3) || getDiag2()==3 || getrevDiag2()==3){
-                console.log(`${name2} won`);
                 result.innerHTML = `${name2} won`;
                 over = 1;
                 return;
             }
         }
         if(indexBox==9){
-            console.log("Tie");
             result.innerHTML = `Tie`;
             over = 1;
         }
     }
-    console.log(indexBox);
 }
 
-// gameBoard.createO(0,1);
-// gameBoard.createX(1,1);
-// gameBoard.createO(2,1);
-
-gameBoard.displayBoard();
 displayController.dis();
